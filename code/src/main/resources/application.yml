@@ -1,0 +1,27 @@
+server:
+  port: 8000
+
+# 数据库连接配置
+mysql:
+  jdbc:
+    user: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sys_user?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+# MyBatis Plus逆向工程配置
+mybatis-plus-generator:
+  # 实体类、Mapper接口、XML映射文件生成的包路径
+  package-config:
+    parent: com.example
+    entity: entity
+    mapper: mapper
+    xml: mapper.xml
+# 数据库表配置
+  db-config:
+    db-url: ${spring.datasource.url}
+    db-driver-name: ${spring.datasource.driver-class-name}
+    db-username: ${spring.datasource.username}
+    db-password: ${spring.datasource.password}
+  # 需要生成代码的表
+  strategy:
+    include: user, product, order
